@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LabNet2022.TP1
+﻿namespace LabNet2022.TP1
 {
     public class Taxi : TransportePublico
     {
@@ -11,14 +9,14 @@ namespace LabNet2022.TP1
             BajadaBandera = bajadaBandera;
         }
 
-        public override void Avanzar()
+        public override string Avanzar()
         {
-            Console.WriteLine("Avanza el Taxi");
+            return "Avanza el Taxi";
         }
 
-        public override void Detenerse()
+        public override string Detenerse()
         {
-            Console.WriteLine("Se detiene el Taxi");
+            return "Se detiene el Taxi";
         }
 
     }

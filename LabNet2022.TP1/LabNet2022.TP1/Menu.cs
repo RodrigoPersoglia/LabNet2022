@@ -17,10 +17,10 @@ namespace LabNet2022.TP1
             Console.WriteLine("***************************************");
             Console.WriteLine("");
             Console.WriteLine("Selecciones la opción deseada");
-            Console.WriteLine("1) - Ingresar informacion de transporte");
+            Console.WriteLine("1) - Ingresar la información de los transportes");
             Console.WriteLine("2) - Ver cantidad de pasajeros");
             Console.WriteLine("3) - Salir de la aplicación");
-            int seleccion = Funciones.ingresoNumero("Ingrese su seleccion: ");
+            int seleccion = Funciones.ingresoNumero("Ingrese su selección: ");
             while (seleccion != 3)
             {
                 switch (seleccion)
@@ -39,10 +39,10 @@ namespace LabNet2022.TP1
                 Console.WriteLine("***************************************");
                 Console.WriteLine("");
                 Console.WriteLine("Selecciones la opción deseada");
-                Console.WriteLine("1) - Ingresar informacion de transporte");
+                Console.WriteLine("1) - Ingresar la información de los transportes");
                 Console.WriteLine("2) - Ver cantidad de pasajeros");
                 Console.WriteLine("3) - Salir de la aplicación");
-                seleccion = Funciones.ingresoNumero("Ingrese su seleccion: ");
+                seleccion = Funciones.ingresoNumero("Ingrese su selección: ");
             }
         }
 

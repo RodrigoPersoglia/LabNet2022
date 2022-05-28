@@ -35,7 +35,7 @@ namespace LabNet2022.TP1
             foreach (var transporte in lista)
             {
                 if (contador > 5) { contador = 1; }
-                Console.WriteLine($"El {transporte.GetType().Name} N° {contador} tiene {transporte.Pasajeros} pasajeros a bordo");
+                Console.WriteLine($"El {transporte.GetType().Name} N° {contador} tiene {transporte.Pasajeros} pasajero/s a bordo");
                 contador++;
             }
         }

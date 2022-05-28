@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace LabNet2022.TP1
+﻿namespace LabNet2022.TP1
 {
     public class Omnibus : TransportePublico
     {
@@ -11,14 +9,14 @@ namespace LabNet2022.TP1
             Capacidad = capacidad;
         }
 
-        public override void Avanzar()
+        public override string Avanzar()
         {
-            Console.WriteLine("Avanza el Omnibus");
+            return "Avanza el Omnibus";
         }
 
-        public override void Detenerse()
+        public override string Detenerse()
         {
-            Console.WriteLine("Se detiene el Omnibus");
+            return "Se detiene el Omnibus";
         }
     }
 }
