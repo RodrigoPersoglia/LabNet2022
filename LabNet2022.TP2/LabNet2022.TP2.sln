@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2022.TP2", "LabNet2022.TP2\LabNet2022.TP2.csproj", "{07F56CA6-49F5-4B65-89F9-6129D439D246}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2022.TP2Tests", "LabNet2022.TP2Tests\LabNet2022.TP2Tests.csproj", "{DCE93EDF-C5AC-4E1B-B1C4-01E327CC6A7A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{07F56CA6-49F5-4B65-89F9-6129D439D246}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07F56CA6-49F5-4B65-89F9-6129D439D246}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07F56CA6-49F5-4B65-89F9-6129D439D246}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07F56CA6-49F5-4B65-89F9-6129D439D246}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DCE93EDF-C5AC-4E1B-B1C4-01E327CC6A7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DCE93EDF-C5AC-4E1B-B1C4-01E327CC6A7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DCE93EDF-C5AC-4E1B-B1C4-01E327CC6A7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DCE93EDF-C5AC-4E1B-B1C4-01E327CC6A7A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A10A708E-184F-4050-8FB4-AEC0303E5FA3}
+	EndGlobalSection
+EndGlobal
