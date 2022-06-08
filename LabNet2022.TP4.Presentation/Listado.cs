@@ -1,29 +1,22 @@
-﻿using LabNet2022.TP4.Logic.Services;
+﻿using LabNet2022.TP4.Domain.Entities;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LabNet2022.TP4.Presentation
 {
     public partial class Listado : Form
     {
-        CrudCategories crud;
-        public Listado()
+        private readonly IServiceCategories _crud;
+        public Listado(IServiceCategories crud)
         {
             InitializeComponent();
-            crud = new CrudCategories();
+            _crud = crud;
         }
 
         private void Listado_Load(object sender, EventArgs e)
         {
-            var listado = crud.VerTodos();
-            foreach(var item in listado)
+            var listado = _crud.VerTodos();
+            foreach (var item in listado)
             {
                 int n = Cuadro.Rows.Add();
                 Cuadro.Rows[n].Cells[0].Value = item.CategoryID;
@@ -31,6 +24,11 @@ namespace LabNet2022.TP4.Presentation
                 Cuadro.Rows[n].Cells[2].Value = item.Description;
                 Cuadro.Rows[n].Cells[3].Value = item.Picture;
             }
+        }
+
+        private void Cancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

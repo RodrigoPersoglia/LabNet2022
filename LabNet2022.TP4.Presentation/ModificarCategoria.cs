@@ -1,5 +1,5 @@
 ﻿using LabNet2022.TP4.Domain;
-using LabNet2022.TP4.Logic.Services;
+using LabNet2022.TP4.Domain.Entities;
 using System;
 using System.Drawing;
 using System.Windows.Forms;
@@ -8,11 +8,11 @@ namespace LabNet2022.TP4.Presentation
 {
     public partial class ModificarCategoria : Form
     {
-        CrudCategories crud;
-        public ModificarCategoria()
+        private readonly IServiceCategories _crud;
+        public ModificarCategoria(IServiceCategories crud)
         {
             InitializeComponent();
-            crud = new CrudCategories();
+            _crud = crud;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -46,7 +46,7 @@ namespace LabNet2022.TP4.Presentation
                     }
                     catch (Exception) { categoria.Picture = null; }
                 }
-                crud.Modificar(categoria);
+                _crud.Modificar(categoria);
             }
 
             catch (Exception ex) { MessageBox.Show(ex.Message, "LabNet2022", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -63,7 +63,7 @@ namespace LabNet2022.TP4.Presentation
                     Imagen.Image = Image.FromFile(imagen);
                 }
             }
-            catch (Exception ){ MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido"); }
+            catch (Exception) { MessageBox.Show("El archivo seleccionado no es un tipo de imagen válido"); }
         }
 
 

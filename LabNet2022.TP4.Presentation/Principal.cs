@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LabNet2022.TP4.DataAccess.Commands;
+using LabNet2022.TP4.Domain.Entities;
+using System;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -6,14 +8,19 @@ namespace LabNet2022.TP4.Presentation
 {
     public partial class Principal : Form
     {
-        public Principal()
+        private readonly IServiceCategories _service;
+        private readonly ICategoriesRepository _repository;
+
+        public Principal(IServiceCategories service, ICategoriesRepository repository)
         {
             InitializeComponent();
+            _service = service;
+            _repository = repository;
         }
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var Agregar = new AgregarCategoria();
+            var Agregar = new AgregarCategoria(_service, _repository);
             Agregar.MdiParent = this;
             Agregar.Show();
         }
@@ -36,14 +43,14 @@ namespace LabNet2022.TP4.Presentation
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var modificar = new ModificarCategoria();
+            var modificar = new ModificarCategoria(_service);
             modificar.MdiParent = this;
             modificar.Show();
         }
 
         private void eliminarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var eliminar = new EliminarCategoria();
+            var eliminar = new EliminarCategoria(_service);
             eliminar.MdiParent = this;
             eliminar.Show();
 
@@ -51,10 +58,10 @@ namespace LabNet2022.TP4.Presentation
 
         private void verTodasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var listado = new Listado();
+            var listado = new Listado(_service);
             listado.MdiParent = this;
             listado.Show();
-
         }
+
     }
 }

@@ -30,13 +30,13 @@ namespace LabNet2022.TP4.Presentation
         private void InitializeComponent()
         {
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Cancelar = new System.Windows.Forms.Button();
             this.Cuadro = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Imagen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cancelar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -62,6 +62,27 @@ namespace LabNet2022.TP4.Presentation
             this.splitContainer1.Size = new System.Drawing.Size(663, 450);
             this.splitContainer1.SplitterDistance = 92;
             this.splitContainer1.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(161, 16);
+            this.label1.TabIndex = 7;
+            this.label1.Text = "Listado de Categorias";
+            // 
+            // Cancelar
+            // 
+            this.Cancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.Cancelar.Location = new System.Drawing.Point(556, 12);
+            this.Cancelar.Name = "Cancelar";
+            this.Cancelar.Size = new System.Drawing.Size(95, 34);
+            this.Cancelar.TabIndex = 6;
+            this.Cancelar.Text = "Cancelar";
+            this.Cancelar.UseVisualStyleBackColor = true;
+            this.Cancelar.Click += new System.EventHandler(this.Cancelar_Click);
             // 
             // Cuadro
             // 
@@ -101,26 +122,6 @@ namespace LabNet2022.TP4.Presentation
             this.Imagen.HeaderText = "Imagen";
             this.Imagen.Name = "Imagen";
             this.Imagen.Width = 250;
-            // 
-            // Cancelar
-            // 
-            this.Cancelar.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancelar.Location = new System.Drawing.Point(556, 12);
-            this.Cancelar.Name = "Cancelar";
-            this.Cancelar.Size = new System.Drawing.Size(95, 34);
-            this.Cancelar.TabIndex = 6;
-            this.Cancelar.Text = "Cancelar";
-            this.Cancelar.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(12, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 16);
-            this.label1.TabIndex = 7;
-            this.label1.Text = "Listado de Categorias";
             // 
             // Listado
             // 
