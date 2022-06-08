@@ -9,13 +9,17 @@ namespace LabNet2022.TP4.Presentation
     public partial class Principal : Form
     {
         private readonly IServiceCategories _service;
+        private readonly IServiceProducts _serviceProduct;
         private readonly ICategoriesRepository _repository;
+        private readonly IProductsRepository _productsRepository;
 
-        public Principal(IServiceCategories service, ICategoriesRepository repository)
+
+        public Principal(IServiceCategories service, IServiceProducts serviceProduct, ICategoriesRepository repository, IProductsRepository productsRepository)
         {
             InitializeComponent();
             _service = service;
             _repository = repository;
+            _serviceProduct = serviceProduct;
         }
 
         private void agregarToolStripMenuItem_Click(object sender, EventArgs e)
@@ -63,5 +67,11 @@ namespace LabNet2022.TP4.Presentation
             listado.Show();
         }
 
+        private void verTodosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var listado = new ListadoProductos(_serviceProduct, _productsRepository);
+            listado.MdiParent = this;
+            listado.Show();
+        }
     }
 }

@@ -9,12 +9,12 @@ namespace LabNet2022.TP4.Presentation
 {
     public partial class AgregarCategoria : Form
     {
-        private readonly IServiceCategories _crud;
+        private readonly IServiceCategories _service;
         private readonly ICategoriesRepository _repository;
-        public AgregarCategoria(IServiceCategories crud, ICategoriesRepository repository)
+        public AgregarCategoria(IServiceCategories service, ICategoriesRepository repository)
         {
             InitializeComponent();
-            _crud = crud;
+            _service = service;
             _repository = repository;
         }
 
@@ -30,7 +30,6 @@ namespace LabNet2022.TP4.Presentation
 
         private void AgregarCategoria_Load(object sender, EventArgs e)
         {
-
         }
 
         private void Aceptar_Click(object sender, EventArgs e)
@@ -47,8 +46,10 @@ namespace LabNet2022.TP4.Presentation
                         categoria.Picture = ImageToByte(Imagen.Image);
                     }
                     catch (Exception) { categoria.Picture = null; }
+
+                    _service.Agregar(categoria);
                 }
-                _crud.Agregar(categoria);
+                else { MessageBox.Show("Hay Campos sin completar", "LabNet2022", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
 
             catch (Exception ex) { MessageBox.Show(ex.Message, "LabNet2022", MessageBoxButtons.OK, MessageBoxIcon.Error); }

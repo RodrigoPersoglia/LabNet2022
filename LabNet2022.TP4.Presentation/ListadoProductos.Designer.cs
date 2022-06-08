@@ -1,7 +1,7 @@
 ﻿
 namespace LabNet2022.TP4.Presentation
 {
-    partial class Listado
+    partial class ListadoProductos
     {
         /// <summary>
         /// Required designer variable.
@@ -29,15 +29,20 @@ namespace LabNet2022.TP4.Presentation
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Listado));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label1 = new System.Windows.Forms.Label();
             this.Cancelar = new System.Windows.Forms.Button();
             this.Cuadro = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Imagen = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Proveedor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CantPorUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Stock = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnidPedido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Reordenar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Discontinuo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -70,9 +75,9 @@ namespace LabNet2022.TP4.Presentation
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(12, 21);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(161, 16);
+            this.label1.Size = new System.Drawing.Size(155, 16);
             this.label1.TabIndex = 7;
-            this.label1.Text = "Listado de Categorias";
+            this.label1.Text = "Listado de Productos";
             // 
             // Cancelar
             // 
@@ -92,8 +97,14 @@ namespace LabNet2022.TP4.Presentation
             this.Cuadro.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Nombre,
-            this.Descripcion,
-            this.Imagen});
+            this.Proveedor,
+            this.Categoria,
+            this.CantPorUnidad,
+            this.Precio,
+            this.Stock,
+            this.UnidPedido,
+            this.Reordenar,
+            this.Discontinuo});
             this.Cuadro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Cuadro.Location = new System.Drawing.Point(0, 0);
             this.Cuadro.Name = "Cuadro";
@@ -113,34 +124,58 @@ namespace LabNet2022.TP4.Presentation
             this.Nombre.Name = "Nombre";
             this.Nombre.Width = 150;
             // 
-            // Descripcion
+            // Proveedor
             // 
-            this.Descripcion.HeaderText = "Descripción";
-            this.Descripcion.Name = "Descripcion";
-            this.Descripcion.Width = 300;
+            this.Proveedor.HeaderText = "Proveedor";
+            this.Proveedor.Name = "Proveedor";
             // 
-            // Imagen
+            // Categoria
             // 
-            this.Imagen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Imagen.HeaderText = "Imagen";
-            this.Imagen.Image = ((System.Drawing.Image)(resources.GetObject("Imagen.Image")));
-            this.Imagen.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Stretch;
-            this.Imagen.MinimumWidth = 50;
-            this.Imagen.Name = "Imagen";
-            this.Imagen.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Imagen.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Categoria.HeaderText = "Categoría";
+            this.Categoria.Name = "Categoria";
+            this.Categoria.Width = 150;
             // 
-            // Listado
+            // CantPorUnidad
+            // 
+            this.CantPorUnidad.HeaderText = "Cant. por Unidad";
+            this.CantPorUnidad.Name = "CantPorUnidad";
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.Name = "Precio";
+            // 
+            // Stock
+            // 
+            this.Stock.HeaderText = "Stock";
+            this.Stock.Name = "Stock";
+            // 
+            // UnidPedido
+            // 
+            this.UnidPedido.HeaderText = "Unid. Pedido";
+            this.UnidPedido.Name = "UnidPedido";
+            // 
+            // Reordenar
+            // 
+            this.Reordenar.HeaderText = "Reordenar";
+            this.Reordenar.Name = "Reordenar";
+            // 
+            // Discontinuo
+            // 
+            this.Discontinuo.HeaderText = "Discontinuo";
+            this.Discontinuo.Name = "Discontinuo";
+            // 
+            // ListadoProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(663, 450);
             this.ControlBox = false;
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Listado";
+            this.Name = "ListadoProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Listado";
-            this.Load += new System.EventHandler(this.Listado_Load);
+            this.Text = "Listado de Productos";
+            this.Load += new System.EventHandler(this.ListadoProductos_Load);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -159,7 +194,13 @@ namespace LabNet2022.TP4.Presentation
         private System.Windows.Forms.Button Cancelar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
-        private System.Windows.Forms.DataGridViewImageColumn Imagen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Proveedor;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CantPorUnidad;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Stock;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UnidPedido;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Reordenar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Discontinuo;
     }
 }

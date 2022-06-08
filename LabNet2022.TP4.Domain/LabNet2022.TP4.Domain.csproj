@@ -53,6 +53,7 @@
     <Compile Include="Entities\CustomerDemographics.cs" />
     <Compile Include="Entities\Customers.cs" />
     <Compile Include="Entities\Employees.cs" />
+    <Compile Include="Entities\IServiceProducts.cs" />
     <Compile Include="Entities\IServiceCategories.cs" />
     <Compile Include="Entities\NorthWindContext.cs" />
     <Compile Include="Entities\Orders.cs" />

@@ -45,8 +45,9 @@ namespace LabNet2022.TP4.Presentation
                         categoria.Picture = ImageToByte(Imagen.Image);
                     }
                     catch (Exception) { categoria.Picture = null; }
+                    _crud.Modificar(categoria);
                 }
-                _crud.Modificar(categoria);
+                else { MessageBox.Show("Hay Campos sin completar", "LabNet2022", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
 
             catch (Exception ex) { MessageBox.Show(ex.Message, "LabNet2022", MessageBoxButtons.OK, MessageBoxIcon.Error); }

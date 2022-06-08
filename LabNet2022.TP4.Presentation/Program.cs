@@ -30,7 +30,9 @@ namespace LabNet2022.TP4.Presentation
         {
             service.AddTransient<IServiceCategories, ServiceCategories>()
                 .AddTransient<Principal>()
-                .AddTransient<ICategoriesRepository, CategoriesRepository>();
+                .AddTransient<IServiceProducts, ServiceProducts>()
+                .AddTransient<ICategoriesRepository, CategoriesRepository>()
+                .AddTransient<IProductsRepository, ProductsRepository>();
         }
 
 
