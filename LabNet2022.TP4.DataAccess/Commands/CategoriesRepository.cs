@@ -1,6 +1,6 @@
 ﻿using LabNet2022.TP4.Domain;
 using LabNet2022.TP4.Domain.Entities;
-using System;
+using LabNet2022.TP4.Domain.Exceptions;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,57 +8,53 @@ namespace LabNet2022.TP4.DataAccess.Commands
 {
     public interface ICategoriesRepository
     {
-        bool Agregar(Categories nuevo);
+        void Agregar(Categories nuevo);
 
-        bool Modificar(Categories modificado);
+        void Modificar(Categories modificado);
 
-        bool Eliminar(int id);
+        void Eliminar(int id);
 
         List<Categories> VerTodos();
+
+        Categories BuscarPorID(int id);
 
     }
     public class CategoriesRepository : ContextLogic, ICategoriesRepository
     {
-        public bool Agregar(Categories nuevo)
+        public void Agregar(Categories nuevo)
         {
-            try
-            {
-                int id = _context.Categories.OrderByDescending(x => x.CategoryID).FirstOrDefault().CategoryID + 1;
-                nuevo.CategoryID = id;
-                _context.Categories.Add(nuevo);
-                _context.SaveChanges();
-                return true;
-            }
-            catch (Exception) { return false; }
-
+            int id = _context.Categories.OrderByDescending(x => x.CategoryID).FirstOrDefault().CategoryID + 1;
+            nuevo.CategoryID = id;
+            _context.Categories.Add(nuevo);
+            _context.SaveChanges();
         }
 
-        public bool Eliminar(int id)
+        public Categories BuscarPorID(int id)
         {
+            return _context.Categories.Find(id);
+        }
 
+        public void Eliminar(int id)
+        {
             var categoria = _context.Categories.Find(id);
-            if (categoria != null)
+            if (categoria == null) { throw new NoExisteException(); }
+            if (_context.Products.Where(product => product.CategoryID == id).ToList().Count > 0)
             {
-                _context.Categories.Remove(categoria);
-                _context.SaveChanges();
-                return true;
+                throw new NoEliminaException("No se puede eliminar la categoría porque tiene productos asociados");
             }
-            return false;
-
+            _context.Categories.Remove(categoria);
+            _context.SaveChanges();
         }
 
-        public bool Modificar(Categories modificado)
+        public void Modificar(Categories modificado)
         {
             var categoria = _context.Categories.Find(modificado.CategoryID);
-            if (categoria != null)
-            {
-                categoria.CategoryName = modificado.CategoryName;
-                categoria.Description = modificado.Description;
-                categoria.Picture = modificado.Picture;
-                _context.SaveChanges();
-                return true;
-            }
-            return false;
+            if (categoria == null) { throw new NoExisteException(); }
+            categoria.CategoryName = modificado.CategoryName;
+            categoria.Description = modificado.Description;
+            categoria.Picture = modificado.Picture;
+            _context.SaveChanges();
+
         }
 
         public List<Categories> VerTodos()

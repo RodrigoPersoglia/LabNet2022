@@ -53,6 +53,7 @@
     <Compile Include="Entities\CustomerDemographics.cs" />
     <Compile Include="Entities\Customers.cs" />
     <Compile Include="Entities\Employees.cs" />
+    <Compile Include="Entities\IServiceSuppliers.cs" />
     <Compile Include="Entities\IServiceProducts.cs" />
     <Compile Include="Entities\IServiceCategories.cs" />
     <Compile Include="Entities\NorthWindContext.cs" />
@@ -63,6 +64,8 @@
     <Compile Include="Entities\Shippers.cs" />
     <Compile Include="Entities\Suppliers.cs" />
     <Compile Include="Entities\Territories.cs" />
+    <Compile Include="Exceptions\NoEliminaException.cs" />
+    <Compile Include="Exceptions\NoExisteException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

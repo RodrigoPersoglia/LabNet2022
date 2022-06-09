@@ -137,6 +137,7 @@ namespace LabNet2022.TP4.Presentation
             this.ID.Name = "ID";
             this.ID.Size = new System.Drawing.Size(68, 20);
             this.ID.TabIndex = 10;
+            this.ID.ValueChanged += new System.EventHandler(this.ID_ValueChanged);
             // 
             // ModificarCategoria
             // 

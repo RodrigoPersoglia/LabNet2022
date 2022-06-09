@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Commands\SupliersRepository.cs" />
     <Compile Include="Commands\ProductsRepository.cs" />
     <Compile Include="Commands\CategoriesRepository.cs" />
     <Compile Include="NorthWindContext.cs" />

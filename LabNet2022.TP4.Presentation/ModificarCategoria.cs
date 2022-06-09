@@ -1,18 +1,20 @@
 ﻿using LabNet2022.TP4.Domain;
 using LabNet2022.TP4.Domain.Entities;
+using LabNet2022.TP4.Domain.Exceptions;
 using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace LabNet2022.TP4.Presentation
 {
     public partial class ModificarCategoria : Form
     {
-        private readonly IServiceCategories _crud;
-        public ModificarCategoria(IServiceCategories crud)
+        private readonly IServiceCategories _service;
+        public ModificarCategoria(IServiceCategories service)
         {
             InitializeComponent();
-            _crud = crud;
+            _service = service;
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -30,6 +32,14 @@ namespace LabNet2022.TP4.Presentation
 
         }
 
+        private void Limpiar()
+        {
+            ID.Value = 0;
+            NombreTXT.Text = "";
+            DescripcionTXT.Text = "";
+            Imagen.Image = null;
+        }
+
         private void Aceptar_Click(object sender, EventArgs e)
         {
             try
@@ -45,11 +55,11 @@ namespace LabNet2022.TP4.Presentation
                         categoria.Picture = ImageToByte(Imagen.Image);
                     }
                     catch (Exception) { categoria.Picture = null; }
-                    _crud.Modificar(categoria);
+                    _service.Modificar(categoria);
                 }
                 else { MessageBox.Show("Hay Campos sin completar", "LabNet2022", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }
-
+            catch (NoExisteException ex) { MessageBox.Show(ex.Message, "LabNet2022", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             catch (Exception ex) { MessageBox.Show(ex.Message, "LabNet2022", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
 
@@ -74,5 +84,29 @@ namespace LabNet2022.TP4.Presentation
             return (byte[])converter.ConvertTo(img, typeof(byte[]));
         }
 
+        private void ID_ValueChanged(object sender, EventArgs e)
+        {
+            var categoria = _service.BuscarPorID(decimal.ToInt32(ID.Value));
+            if (categoria != null)
+            {
+                NombreTXT.Text = categoria.CategoryName;
+                DescripcionTXT.Text = categoria.Description;
+                Imagen.Image = byteArrayToImage(categoria.Picture);
+            }
+            else { Limpiar(); }
+        }
+
+        public Image byteArrayToImage(byte[] bytesArr)
+        {
+            try
+            {
+                using (MemoryStream memstr = new MemoryStream(bytesArr))
+                {
+                    Image img = Image.FromStream(memstr);
+                    return img;
+                }
+            }
+            catch (Exception) { return null; }
+        }
     }
 }

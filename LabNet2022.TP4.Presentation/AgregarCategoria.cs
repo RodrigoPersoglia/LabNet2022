@@ -32,6 +32,12 @@ namespace LabNet2022.TP4.Presentation
         {
         }
 
+        private void Limpiar()
+        {
+            NombreTXT.Text = "";
+            DescripcionTXT.Text = "";
+            Imagen.Image = null;
+        }
         private void Aceptar_Click(object sender, EventArgs e)
         {
             try
@@ -48,6 +54,7 @@ namespace LabNet2022.TP4.Presentation
                     catch (Exception) { categoria.Picture = null; }
 
                     _service.Agregar(categoria);
+                    Limpiar();
                 }
                 else { MessageBox.Show("Hay Campos sin completar", "LabNet2022", MessageBoxButtons.OK, MessageBoxIcon.Error); }
             }

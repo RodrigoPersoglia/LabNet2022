@@ -29,10 +29,15 @@ namespace LabNet2022.TP4.Presentation
         public static void Configservices(ServiceCollection service)
         {
             service.AddTransient<IServiceCategories, ServiceCategories>()
-                .AddTransient<Principal>()
-                .AddTransient<IServiceProducts, ServiceProducts>()
                 .AddTransient<ICategoriesRepository, CategoriesRepository>()
-                .AddTransient<IProductsRepository, ProductsRepository>();
+
+                .AddTransient<IServiceProducts, ServiceProducts>()
+                .AddTransient<IProductsRepository, ProductsRepository>()
+
+                .AddTransient<ISuppliersRepository, SuppliersRepository>()
+                .AddTransient<IServiceSuppliers, ServiceSuppliers>()
+
+                 .AddTransient<Principal>();
         }
 
 

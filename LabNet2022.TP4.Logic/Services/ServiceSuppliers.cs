@@ -6,16 +6,16 @@ using System.Collections.Generic;
 
 namespace LabNet2022.TP4.Logic.Services
 {
-    public class ServiceProducts : IServiceProducts
+    public class ServiceSuppliers : IServiceSuppliers
     {
-        private readonly IProductsRepository _repository;
+        private readonly ISuppliersRepository _repository;
 
-        public ServiceProducts(IProductsRepository repository)
+        public ServiceSuppliers(ISuppliersRepository repository)
         {
             _repository = repository;
         }
 
-        public void Agregar(Products nuevo)
+        public void Agregar(Suppliers nuevo)
         {
             throw new NotImplementedException();
         }
@@ -25,12 +25,12 @@ namespace LabNet2022.TP4.Logic.Services
             throw new NotImplementedException();
         }
 
-        public void Modificar(Products modificado)
+        public void Modificar(Suppliers modificado)
         {
             throw new NotImplementedException();
         }
 
-        public List<Products> VerTodos()
+        public List<Suppliers> VerTodos()
         {
             return _repository.VerTodos();
         }

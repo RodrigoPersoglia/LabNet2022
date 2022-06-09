@@ -11,6 +11,7 @@ namespace LabNet2022.TP4.Domain.Entities
         void Eliminar(int id);
 
         List<Categories> VerTodos();
+        Categories BuscarPorID(int id);
 
     }
 }
