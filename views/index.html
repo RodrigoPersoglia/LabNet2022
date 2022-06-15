@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lab Net 2022</title>
+    <link rel="stylesheet" href="../styles/style.css">
+</head>
+<body>
+    <div class="contact_form">
+
+        <div class="formulario">      
+          <h1>Formulario de Inscripción</h1>
+            <h3>ingrese sus datos Personales</h3>
+    
+    
+              <form  id = "form">       
+    
+                
+                    <p>
+                      <label for="nombre" class="colocar_nombre">Nombre
+                        <span class="obligatorio">*</span>
+                      </label>
+                        <input type="text" name="introducir_nombre" id="nombre"  placeholder="Escribe tu nombre">
+                    </p>
+                    <p>
+                        <label for="apellido" class="colocar_apellido">Apellido
+                          <span class="obligatorio">*</span>
+                        </label>
+                          <input type="text" name="introducir_apellido" id="apellido" placeholder="Escribe tu apellido">
+                      </p>
+
+                      <p>
+                        <label for="nacimiento" class="colocar_nacimiento">Fecha de nacimiento
+                          <span class="obligatorio">*</span>
+                        </label>
+                          <input type="date" name="introducir_nacimiento" id="nacimiento">
+                      </p>
+
+                      <p>
+                        <label for="edad" class="colocar_edad">Edad
+                          <span class="obligatorio">*</span>
+                        </label>
+                          <input type="number" name="introducir_edad" id="edad"  placeholder="Aqui se calculará su edad" readonly>
+                      </p>
+                  
+                    <p>
+                      <label for="email" class="colocar_email">Email
+                      </label>
+                        <input type="email" name="introducir_email" id="email" placeholder="Escribe tu Email">
+                    </p>
+                
+                    <p>
+                      <label for="telefono" class="colocar_telefono">Teléfono
+                      </label>
+                        <input type="tel" name="introducir_telefono" id="telefono" placeholder="Escribe tu teléfono">
+                    </p>    
+
+                    <p>
+                        <label for="direccion" class="colocar_direccion">Dirección
+                        </label>
+                          <input type="text" name="introducir_direccion" id="direccion" placeholder="Escribe tu dirección">
+                    </p>   
+
+                    <p>
+                        <label for="localidad" class="colocar_localidad">Localidad
+                        </label>
+                          <input type="text" name="introducir_localidad" id="localidad" placeholder="Escribe tu localidad">
+                      </p>  
+
+                      <p>
+                        <label for="provincia" class="colocar_provincia">Provincia
+                        </label>
+                        <select name="introducir_provincia" id="provincia">
+                            <option value="0" selected>Seleccione</option>
+
+                          </select>
+                      </p>  
+                  
+   
+                  
+                    <p>
+                      <label for="asunto" class="colocar_asunto">Asunto
+                      </label>
+                        <input type="text" name="introducir_asunto" id="asunto" placeholder="Escribe el curso al que desea inscribirse">
+                    </p>    
+                  
+                    <p>
+                      <label for="mensaje" class="colocar_mensaje">Mensaje
+                      </label>                     
+                        <textarea name="introducir_mensaje" class="texto_mensaje" id="mensaje" placeholder="Deja aquí tu comentario..."></textarea> 
+                    </p>                    
+                  
+                    <button  type="button" name="enviar_formulario" id="enviar"><p>Enviar</p></button>
+                    <button  type="button" name="limpiar_formulario" id="limpiar"><p>Limpiar</p></button>
+    
+                    <p class="aviso">
+                      <span class="obligatorio"> * </span>los campos son obligatorios.
+                    </p>          
+                
+              </form>
+        </div>  
+      </div>
+    
+</body>
+<script src="../apps/service.js"></script>
+</html>
