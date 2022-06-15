@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31515.178
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32328.378
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2022.TP4.Presentation", "LabNet2022.TP4.Presentation\LabNet2022.TP4.Presentation.csproj", "{62F8F426-AFB3-406F-BB1B-762EF499C53D}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2022.TP4.Domain", "LabNet2022.TP4.Domain\LabNet2022.TP4.Domain.csproj", "{9783CC25-B54B-4043-AAC1-1038FEF1F81A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2022.TP4.Logic", "LabNet2022.TP4.Logic\LabNet2022.TP4.Logic.csproj", "{CE5198D6-2A3C-401B-A8F7-B9AB511275EC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2022.TP7.Web", "LabNet2022.TP7.Web\LabNet2022.TP7.Web.csproj", "{68DFF2C9-A96A-4D00-BA61-BCBB5250ED10}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{CE5198D6-2A3C-401B-A8F7-B9AB511275EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE5198D6-2A3C-401B-A8F7-B9AB511275EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE5198D6-2A3C-401B-A8F7-B9AB511275EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68DFF2C9-A96A-4D00-BA61-BCBB5250ED10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68DFF2C9-A96A-4D00-BA61-BCBB5250ED10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68DFF2C9-A96A-4D00-BA61-BCBB5250ED10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68DFF2C9-A96A-4D00-BA61-BCBB5250ED10}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
