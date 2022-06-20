@@ -2,6 +2,7 @@
 using LabNet2022.TP7.Domain;
 using LabNet2022.TP7.Domain.Entities;
 using LabNet2022.TP7.Domain.EntitiesDTO;
+using LabNet2022.TP7.Domain.Exceptions;
 using LabNet2022.TP7.Logic.Services;
 using System;
 using System.Collections.Generic;
@@ -87,7 +88,16 @@ namespace LabNet2022.TP7.Web.Controllers
                 _service.Eliminar(id);
                 return RedirectToAction("Index");
             }
-            catch (Exception) { throw; }
+            catch (NoEliminaException ex) {
+
+                return RedirectToAction("Error");
+
+            }
+        }
+
+        public ActionResult Error()
+        {
+            return View();
         }
 
     }
