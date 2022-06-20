@@ -56,7 +56,7 @@ namespace LabNet2022.TP7.Web.Controllers
                 _service.Agregar(categoryEntity);
                 return RedirectToAction("Index");
             }
-            catch (Exception ex) { throw; }
+            catch (Exception) { return View(category); }
         }
 
         public ActionResult Editar(int id, string name , string description)
@@ -77,7 +77,7 @@ namespace LabNet2022.TP7.Web.Controllers
                 _service.Modificar(categoryEntity);
                 return RedirectToAction("Index");
             }
-            catch (Exception ex) { throw; }
+            catch (Exception) { return View(category); }
         }
 
         public ActionResult Eliminar(int id)
@@ -87,7 +87,7 @@ namespace LabNet2022.TP7.Web.Controllers
                 _service.Eliminar(id);
                 return RedirectToAction("Index");
             }
-            catch (Exception ex) { throw; }
+            catch (Exception) { throw; }
         }
 
     }
