@@ -1,7 +1,7 @@
-using LabNet2022.TP4.Domain;
+using LabNet2022.TP7.Domain;
 using System.Data.Entity;
 
-namespace LabNet2022.TP4.DataAccess
+namespace LabNet2022.TP7.DataAccess
 {
     public partial class NorthWindContext : DbContext
     {
@@ -91,5 +91,7 @@ namespace LabNet2022.TP4.DataAccess
                 .Property(e => e.TerritoryDescription)
                 .IsFixedLength();
         }
+
+        public System.Data.Entity.DbSet<LabNet2022.TP7.Domain.EntitiesDTO.CategoryDTO> CategoryDTOes { get; set; }
     }
 }

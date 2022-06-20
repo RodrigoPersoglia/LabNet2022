@@ -1,10 +1,10 @@
-﻿using LabNet2022.TP4.DataAccess.Commands;
-using LabNet2022.TP4.Domain;
-using LabNet2022.TP4.Domain.Entities;
+﻿using LabNet2022.TP7.DataAccess.Commands;
+using LabNet2022.TP7.Domain;
+using LabNet2022.TP7.Domain.Entities;
 using System;
 using System.Collections.Generic;
 
-namespace LabNet2022.TP4.Logic.Services
+namespace LabNet2022.TP7.Logic.Services
 {
     public class ServiceProducts : IServiceProducts
     {

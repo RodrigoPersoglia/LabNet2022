@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace LabNet2022.TP4.Domain.Exceptions
+namespace LabNet2022.TP7.Domain.Exceptions
 {
     public class NoEliminaException : Exception
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace LabNet2022.TP4.Domain.Entities
+namespace LabNet2022.TP7.Domain.Entities
 {
     public interface IServiceProducts
     {

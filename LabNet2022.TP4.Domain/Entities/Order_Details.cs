@@ -1,4 +1,4 @@
-namespace LabNet2022.TP4.Domain
+namespace LabNet2022.TP7.Domain
 {
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
