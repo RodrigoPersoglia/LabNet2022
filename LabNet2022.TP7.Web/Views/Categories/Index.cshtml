@@ -1,0 +1,63 @@
+﻿@model List<LabNet2022.TP7.Domain.Categories>
+
+@{
+    ViewBag.Title = "Lab Net 2022";
+}
+
+@if (ViewBag.Alert != null)
+{
+    <div class="alert alert-dismissable alert-info">
+        <button type="button" class="close" data-dismiss="alert">
+            &times;
+        </button>
+        <strong>Aviso!</strong> @ViewBag.Alert
+    </div>
+}
+
+<br />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Descripcion</th>
+            <th scope="col">Acción</th>
+            <th scope="col">Acción</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var category in Model)
+        {
+            <tr>
+                <th scope="row">@category.CategoryID</th>
+                <td>@category.CategoryName</td>
+                <td>@category.Description</td>
+                <td>@Html.ActionLink("Editar", "Editar", new { id = category.CategoryID, name = category.CategoryName, description = category.Description })</td>
+                <td>@Html.ActionLink("Eliminar", "Eliminar", new { id = category.CategoryID }, new { onclick = "return confirm('Estas seguro/a de eliminar el registro')" })</td>
+            </tr>
+
+        }
+
+        <tr>
+            <th scope="row"></th>
+            <td>@Html.ActionLink("Agregar categoria", "Agregar")</td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
+
+
+    </tbody>
+</table>
+
+@if (ViewBag.Alert != null)
+{
+    <script>
+    alert("@ViewBag.Alert");
+    </script>
+}
+
+
+
+
