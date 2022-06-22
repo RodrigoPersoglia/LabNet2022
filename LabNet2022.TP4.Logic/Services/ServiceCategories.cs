@@ -1,6 +1,7 @@
 ﻿using LabNet2022.TP7.DataAccess.Commands;
 using LabNet2022.TP7.Domain;
 using LabNet2022.TP7.Domain.Entities;
+using LabNet2022.TP7.Domain.EntitiesDTO;
 using System.Collections.Generic;
 
 namespace LabNet2022.TP7.Logic.Services
@@ -14,15 +15,17 @@ namespace LabNet2022.TP7.Logic.Services
             _repository = repository;
         }
 
-        public void Agregar(Categories nuevo)
+        public void Agregar(CategoryDTO nuevo)
         {
-            _repository.Agregar(nuevo);
+            var category = new Categories() { CategoryName = nuevo.CategoryName, Description = nuevo.Description };
+            _repository.Agregar(category);
 
         }
 
-        public void Modificar(Categories modificado)
+        public void Modificar(CategoryDTO modificado)
         {
-            _repository.Modificar(modificado);
+            var category = new Categories() { CategoryID = modificado.CategoryID, CategoryName = modificado.CategoryName, Description = modificado.Description };
+            _repository.Modificar(category);
 
         }
 

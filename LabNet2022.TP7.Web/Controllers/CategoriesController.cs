@@ -53,8 +53,7 @@ namespace LabNet2022.TP7.Web.Controllers
         {
             try
             {
-                var categoryEntity = new Categories() { CategoryName = category.CategoryName, Description = category.Description };
-                _service.Agregar(categoryEntity);
+                _service.Agregar(category);
                 return RedirectToAction("Index");
             }
             catch (Exception) { return View(category); }
@@ -74,8 +73,7 @@ namespace LabNet2022.TP7.Web.Controllers
         {
             try
             {
-                var categoryEntity = new Categories() { CategoryID = category.CategoryID, CategoryName = category.CategoryName, Description = category.Description };
-                _service.Modificar(categoryEntity);
+                _service.Modificar(category);
                 return RedirectToAction("Index");
             }
             catch (Exception) { return View(category); }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2022.TP4.Logic", "Lab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2022.TP7.Web", "LabNet2022.TP7.Web\LabNet2022.TP7.Web.csproj", "{68DFF2C9-A96A-4D00-BA61-BCBB5250ED10}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LabNet2022.TP8.APIREST", "LabNet2022.TP8.APIREST\LabNet2022.TP8.APIREST.csproj", "{F8B9FFD6-E74C-4BFA-8C72-B2B1551DA558}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{68DFF2C9-A96A-4D00-BA61-BCBB5250ED10}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68DFF2C9-A96A-4D00-BA61-BCBB5250ED10}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68DFF2C9-A96A-4D00-BA61-BCBB5250ED10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F8B9FFD6-E74C-4BFA-8C72-B2B1551DA558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F8B9FFD6-E74C-4BFA-8C72-B2B1551DA558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F8B9FFD6-E74C-4BFA-8C72-B2B1551DA558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F8B9FFD6-E74C-4BFA-8C72-B2B1551DA558}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
