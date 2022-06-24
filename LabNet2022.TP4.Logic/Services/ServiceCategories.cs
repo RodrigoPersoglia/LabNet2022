@@ -2,6 +2,8 @@
 using LabNet2022.TP7.Domain;
 using LabNet2022.TP7.Domain.Entities;
 using LabNet2022.TP7.Domain.EntitiesDTO;
+using LabNet2022.TP7.Domain.Exceptions;
+using LabNet2022.TP8.Service.Mappers;
 using System.Collections.Generic;
 
 namespace LabNet2022.TP7.Logic.Services
@@ -15,18 +17,18 @@ namespace LabNet2022.TP7.Logic.Services
             _repository = repository;
         }
 
-        public void Agregar(CategoryDTO nuevo)
+        public void Agregar(CategoryDTO2 nuevo)
         {
+            if (nuevo == null) { throw new DatosException("Los datos recibidos son inválidos"); }
             var category = new Categories() { CategoryName = nuevo.CategoryName, Description = nuevo.Description };
             _repository.Agregar(category);
-
         }
 
-        public void Modificar(CategoryDTO modificado)
+        public void Modificar(int id, CategoryDTO2 modificado)
         {
-            var category = new Categories() { CategoryID = modificado.CategoryID, CategoryName = modificado.CategoryName, Description = modificado.Description };
+            if (modificado == null) { throw new DatosException("Los datos recibidos son inválidos"); }
+            var category = new Categories() { CategoryID = id, CategoryName = modificado.CategoryName, Description = modificado.Description };
             _repository.Modificar(category);
-
         }
 
         public void Eliminar(int id)
@@ -34,14 +36,21 @@ namespace LabNet2022.TP7.Logic.Services
             _repository.Eliminar(id);
         }
 
-        public List<Categories> VerTodos()
+        public List<CategoryDTO> VerTodos()
         {
-            return _repository.VerTodos();
+
+            var list = new List<CategoryDTO>();
+            var mapper = new MapperCategories();
+            foreach (var category in _repository.VerTodos())
+            {
+                list.Add(mapper.EntityToDto(category));
+            }
+            return list;
         }
 
-        public Categories BuscarPorID(int id)
+        public CategoryDTO BuscarPorID(int id)
         {
-            return _repository.BuscarPorID(id);
+            return new MapperCategories().EntityToDto(_repository.BuscarPorID(id));
         }
     }
 }

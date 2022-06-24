@@ -23,7 +23,27 @@ namespace LabNet2022.TP7.Domain.EntitiesDTO
         [StringLength(50)]
         [Display(Name = "Descripcion")]
         public string Description { get; set; }
-
-
     }
+
+
+
+    public class CategoryDTO2
+    {
+
+        public CategoryDTO2()
+        {
+        }
+
+
+        [Required]
+        [StringLength(15)]
+        [Display(Name = "Nombre")]
+        public string CategoryName { get; set; }
+
+        [Required]
+        [StringLength(50)]
+        [Display(Name = "Descripcion")]
+        public string Description { get; set; }
+    }
+
 }

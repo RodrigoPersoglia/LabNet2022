@@ -1,5 +1,4 @@
 ﻿using LabNet2022.TP7.DataAccess.Commands;
-using LabNet2022.TP7.Domain;
 using LabNet2022.TP7.Domain.Entities;
 using LabNet2022.TP7.Domain.EntitiesDTO;
 using LabNet2022.TP7.Domain.Exceptions;

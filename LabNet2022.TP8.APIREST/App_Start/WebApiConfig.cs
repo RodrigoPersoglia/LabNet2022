@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace LabNet2022.TP8.APIREST
 {
@@ -13,7 +10,6 @@ namespace LabNet2022.TP8.APIREST
 
             // Rutas de Web API
             config.MapHttpAttributeRoutes();
-
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{id}",

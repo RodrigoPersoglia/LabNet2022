@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 
 namespace LabNet2022.TP8.APIREST.Areas.HelpPage.ModelDescriptions

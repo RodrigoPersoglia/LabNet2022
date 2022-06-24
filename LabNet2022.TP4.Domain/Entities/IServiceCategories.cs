@@ -5,14 +5,14 @@ namespace LabNet2022.TP7.Domain.Entities
 {
     public interface IServiceCategories
     {
-        void Agregar(CategoryDTO nuevo);
+        void Agregar(CategoryDTO2 nuevo);
 
-        void Modificar(CategoryDTO modificado);
+        void Modificar(int id, CategoryDTO2 modificado);
 
         void Eliminar(int id);
 
-        List<Categories> VerTodos();
-        Categories BuscarPorID(int id);
+        List<CategoryDTO> VerTodos();
+        CategoryDTO BuscarPorID(int id);
 
     }
 }

@@ -1,130 +1,99 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Entity;
-using System.Linq;
-using System.Net;
-using System.Web;
-using System.Web.Mvc;
-using LabNet2022.TP7.DataAccess;
-using LabNet2022.TP7.DataAccess.Commands;
-using LabNet2022.TP7.Domain;
+﻿using LabNet2022.TP7.DataAccess.Commands;
 using LabNet2022.TP7.Domain.Entities;
 using LabNet2022.TP7.Domain.EntitiesDTO;
+using LabNet2022.TP7.Domain.Exceptions;
 using LabNet2022.TP7.Logic.Services;
+using System;
+using System.Web.Http;
 
 namespace LabNet2022.TP8.APIREST.Controllers
 {
-    public class CategoriesController : Controller
+    /// <summary>
+    ///  
+    /// </summary>
+    public class CategoriesController : ApiController
     {
-        private TP7.DataAccess.NorthWindContext db = new TP7.DataAccess.NorthWindContext();
-        private readonly IServiceCategories _service = new ServiceCategories(new CategoriesRepository()); 
 
-        // GET: Categories
-        public ActionResult Index()
+        private readonly IServiceCategories _service = new ServiceCategories(new CategoriesRepository());
+
+        // GET api/Categories
+        ///<Summary>
+        /// Obtiene todas las categorias
+        ///</Summary>
+        public IHttpActionResult Get()
         {
-            return View(db.Categories.ToList());
+            try
+            {
+                return Ok(_service.VerTodos());
+            }
+            catch (Exception) { return InternalServerError(); }
         }
 
-        // GET: Categories/Details/5
-        public ActionResult Details(int? id)
+        // GET api/Categories/{id}
+        ///<Summary>
+        /// Obtiene una categoria por id
+        ///</Summary>
+        public IHttpActionResult Get(int id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Categories categories = db.Categories.Find(id);
-            if (categories == null)
-            {
-                return HttpNotFound();
-            }
-            return View(categories);
-        }
-
-        // GET: Categories/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Categories/Create
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryID,CategoryName,Description,Picture")] CategoryDTO categories)
-        {
-            if (ModelState.IsValid)
-            {
-                _service.Agregar(categories);
-                return RedirectToAction("Index");
+                return Ok(_service.BuscarPorID(id));
             }
 
-            return View(categories);
+            catch (NoExisteException) { return NotFound(); }
+            catch (Exception) { return InternalServerError(); }
         }
 
-        // GET: Categories/Edit/5
-        public ActionResult Edit(int? id)
+
+        // POST api/Categories
+        ///<Summary>
+        /// Crear una categoria
+        ///</Summary>
+        public IHttpActionResult Post([FromBody] CategoryDTO2 category)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                _service.Agregar(category);
+                return Ok();
             }
-            Categories categories = db.Categories.Find(id);
-            if (categories == null)
-            {
-                return HttpNotFound();
-            }
-            return View(categories);
+            catch (DatosException ex) { return BadRequest(ex.Message); }
+            catch (Exception) { return InternalServerError(); }
         }
 
-        // POST: Categories/Edit/5
-        // Para protegerse de ataques de publicación excesiva, habilite las propiedades específicas a las que quiere enlazarse. Para obtener 
-        // más detalles, vea https://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryID,CategoryName,Description,Picture")] CategoryDTO categories)
+
+        // PUT api/Categories/{id}
+        ///<Summary>
+        /// Modificar una categoria
+        ///</Summary>
+        public IHttpActionResult Put([FromUri] int id, [FromBody] CategoryDTO2 category)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _service.Modificar(categories);
-                return RedirectToAction("Index");
+                _service.Modificar(id, category);
+                return Ok();
             }
-            return View(categories);
+            catch (DatosException ex) { return BadRequest(ex.Message); }
+            catch (NoExisteException) { return NotFound(); }
+            catch (Exception) { return InternalServerError(); }
         }
 
-        // GET: Categories/Delete/5
-        public ActionResult Delete(int? id)
+
+        //DELETE api/Categories/{id}
+        ///<Summary>
+        /// Eliminar una categoria
+        ///</Summary>
+        public IHttpActionResult Delete(int id)
         {
-            if (id == null)
+            try
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                _service.Eliminar(id);
+                return Ok();
             }
-            Categories categories = _service.BuscarPorID((int)id);
-            if (categories == null)
-            {
-                return HttpNotFound();
-            }
-            return View(categories);
+            catch (NoEliminaException ex) { return BadRequest(ex.Message); }
+            catch (NoExisteException) { return NotFound(); }
+            catch (Exception) { return InternalServerError(); }
         }
 
-        // POST: Categories/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
-        {
-            Categories categories = _service.BuscarPorID((int)id);
-            _service.Eliminar(id);
-            return RedirectToAction("Index");
-        }
 
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
-        }
     }
 }

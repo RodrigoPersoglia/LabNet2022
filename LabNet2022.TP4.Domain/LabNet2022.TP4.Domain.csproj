@@ -69,6 +69,7 @@
     <Compile Include="Entities\Shippers.cs" />
     <Compile Include="Entities\Suppliers.cs" />
     <Compile Include="Entities\Territories.cs" />
+    <Compile Include="Exceptions\DatosException.cs" />
     <Compile Include="Exceptions\NoEliminaException.cs" />
     <Compile Include="Exceptions\NoExisteException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

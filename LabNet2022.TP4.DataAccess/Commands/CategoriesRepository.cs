@@ -31,16 +31,18 @@ namespace LabNet2022.TP7.DataAccess.Commands
 
         public Categories BuscarPorID(int id)
         {
-            return _context.Categories.Find(id);
+            var category = _context.Categories.Find(id);
+            if (category == null) { throw new NoExisteException($"el registro nº {id} no existe en la base de datos"); }
+            return category;
         }
 
         public void Eliminar(int id)
         {
             var categoria = _context.Categories.Find(id);
-            if (categoria == null) { throw new NoExisteException(); }
+            if (categoria == null) { throw new NoExisteException($"el registro nº {id} no existe en la base de datos"); }
             if (_context.Products.Where(product => product.CategoryID == id).ToList().Count > 0)
             {
-                throw new NoEliminaException("No se puede eliminar la categoría porque tiene productos asociados");
+                throw new NoEliminaException($"No se puede eliminar la categoría con el id nº {id} porque tiene productos asociados");
             }
             _context.Categories.Remove(categoria);
             _context.SaveChanges();
@@ -49,17 +51,19 @@ namespace LabNet2022.TP7.DataAccess.Commands
         public void Modificar(Categories modificado)
         {
             var categoria = _context.Categories.Find(modificado.CategoryID);
-            if (categoria == null) { throw new NoExisteException(); }
+            if (categoria == null) { throw new NoExisteException($"el registro nº {modificado.CategoryID} no existe en la base de datos"); }
             categoria.CategoryName = modificado.CategoryName;
             categoria.Description = modificado.Description;
             categoria.Picture = modificado.Picture;
             _context.SaveChanges();
-
         }
+
 
         public List<Categories> VerTodos()
         {
             return _context.Categories.ToList();
         }
+
+
     }
 }
