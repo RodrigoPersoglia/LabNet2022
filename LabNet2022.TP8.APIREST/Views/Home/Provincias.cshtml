@@ -1,0 +1,34 @@
+﻿@model LabNet2022.TP4.Domain.Entities.Pais
+
+@{
+    ViewBag.Title = "Lab Net 2022";
+}
+
+
+<h2>Provincias argentinas</h2>
+
+<br />
+
+
+<table class="table table-hover">
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Latitud Centroide</th>
+        <th>Centroide ion</th>
+    </tr>
+    @foreach (var provincia in Model.provincias)
+    {
+        <tr>
+            <td>@provincia.id</td>
+            <td>@provincia.nombre</td>
+            <td>@provincia.centroide.lat</td>
+            <td>@provincia.centroide.lon</td>
+        </tr>
+    }
+</table>
+
+
+
+
+
