@@ -19,16 +19,25 @@ namespace LabNet2022.TP7.Logic.Services
 
         public void Agregar(CategoryDTO2 nuevo)
         {
-            if (nuevo == null) { throw new DatosException("Los datos recibidos son inválidos"); }
-            var category = new Categories() { CategoryName = nuevo.CategoryName, Description = nuevo.Description };
-            _repository.Agregar(category);
+            try
+            {
+                if (nuevo == null) { throw new DatosException("Los datos recibidos son inválidos"); }
+                var category = new Categories() { CategoryName = nuevo.CategoryName, Description = nuevo.Description };
+                _repository.Agregar(category);
+            }
+            catch (DatosException) { throw new DatosException("Los datos recibidos son inválidos"); }
         }
 
         public void Modificar(int id, CategoryDTO2 modificado)
         {
-            if (modificado == null) { throw new DatosException("Los datos recibidos son inválidos"); }
-            var category = new Categories() { CategoryID = id, CategoryName = modificado.CategoryName, Description = modificado.Description };
-            _repository.Modificar(category);
+            try
+            {
+                if (modificado == null) { throw new DatosException("Los datos recibidos son inválidos"); }
+                var category = new Categories() { CategoryID = id, CategoryName = modificado.CategoryName, Description = modificado.Description };
+                _repository.Modificar(category);
+            }
+            catch (DatosException) { throw new DatosException("Los datos recibidos son inválidos"); }
+
         }
 
         public void Eliminar(int id)
